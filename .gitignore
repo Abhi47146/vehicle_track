@@ -1,0 +1,21 @@
+# Videos
+*.mp4
+*.avi
+
+# Models / weights
+*.pt
+*.onnx
+*.engine
+*.bin
+yolov9_finetuned_openvino_model/
+
+# Logs
+logs/
+
+# Python
+__pycache__/
+*.pyc
+
+# Env
+env/
+myenv/
