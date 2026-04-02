@@ -2,7 +2,7 @@
 
 A lightweight, real-time multi-object tracking pipeline for aerial drone footage.
 Detects and tracks **persons** in the VisDrone dataset using a custom-adapted
-YOLOv8n + ByteTrack pipeline with Camera Motion Compensation (CMC).
+YOLOv9n + ByteTrack pipeline with Camera Motion Compensation (CMC).
 
 ---
 
@@ -65,7 +65,7 @@ nayanam/
 
 ## 1. Architecture & Small Object Detection
 
-### Base Detector: YOLOv8n
+### Base Detector: YOLOv9n
 
 **Why YOLOv9n?**
 
@@ -212,7 +212,7 @@ Key modification vs standard SORT Kalman:
 | No-tile, No-CMC | CPU | 30–38 FPS |
 
 Tested on VisDrone validation sequences (1920×1080, 25 FPS target),
-YOLOv8n COCO weights, Python 3.11, Ubuntu 22.04.
+YOLOv9n COCO weights, Python 3.11, Ubuntu 22.04.
 
 ### Adapting for Edge Hardware (NVIDIA Jetson)
 
@@ -249,8 +249,8 @@ predictions only (near-zero cost). CMC still runs every frame (~2 ms).
 **Model Size:**
 | Component | Size |
 |---|---|
-| YOLOv8n FP32 | 6 MB |
-| YOLOv8n INT8 (TRT) | ~3 MB |
+| YOLOv9n FP32 | 6 MB |
+| YOLOv9n INT8 (TRT) | ~3 MB |
 | ByteTrack + Kalman | ~50 KB |
 | **Total pipeline** | **~6 MB** (well under 300 MB) |
 
@@ -279,6 +279,6 @@ pipeline truly lightweight.
 ## Acknowledgements
 
 - VisDrone Dataset — AISKYEYE Lab, Tianjin University
-- Ultralytics YOLOv8
+- Ultralytics YOLOv9
 - ByteTrack: Zhang et al., ECCV 2022
 - SAHI: Akyon et al., IEEE ICIP 2022 (tile inference inspiration)
