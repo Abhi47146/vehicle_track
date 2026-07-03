@@ -1,0 +1,4 @@
+include nayanam/best.pt
+include nayanam/best.engine
+include nayanam/best.onnx
+recursive-include nayanam/best_openvino_model *
