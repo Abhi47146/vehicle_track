@@ -2,7 +2,7 @@
 
 A lightweight, real-time multi-object tracking pipeline for aerial drone footage.
 Detects and tracks **persons** in the VisDrone dataset using a custom-adapted
-YOLOv8n + ByteTrack pipeline with Camera Motion Compensation (CMC).
+YOLOv9n + ByteTrack pipeline with Camera Motion Compensation (CMC).
 
 ---
 
@@ -51,8 +51,8 @@ nayanam/
 |---|---|---|
 | `--video PATH` | — | Single video file |
 | `--dir PATH` | — | Directory of videos |
-| `--config PATH` | `config.ini` | YAML config |
-| `--model PATH` | `yolov9n.pt` | YOLOv8 checkpoint |
+| `--config PATH` | `config.ini` | Path directory |
+| `--model PATH` | `yolov9n.pt` | YOLOv9 checkpoint |
 | `--output DIR` | `outputs/` | Output directory |
 | `--no-tile` | off | Disable tile inference (faster) |
 | `--no-cmc` | off | Disable Camera Motion Compensation |
@@ -65,7 +65,7 @@ nayanam/
 
 ## 1. Architecture & Small Object Detection
 
-### Base Detector: YOLOv8n
+### Base Detector: YOLOv9n
 
 **Why YOLOv9n?**
 
@@ -79,7 +79,7 @@ The `n` (nano) variant was selected because:
 - COCO pre-trained weights transfer well to VisDrone persons with minimal
   fine-tuning.
 
-**How YOLOv9n works internally (key components):**
+**How YOLOv8n works internally (key components):**
 
 The backbone is C2f (Cross-Stage Partial with 2 bottleneck layers), a lighter
 variant of CSPDarknet. Features are extracted at strides 8, 16, and 32. The
@@ -212,7 +212,7 @@ Key modification vs standard SORT Kalman:
 | No-tile, No-CMC | CPU | 30–38 FPS |
 
 Tested on VisDrone validation sequences (1920×1080, 25 FPS target),
-YOLOv8n COCO weights, Python 3.11, Ubuntu 22.04.
+YOLOv9n COCO weights, Python 3.11, Ubuntu 22.04.
 
 ### Adapting for Edge Hardware (NVIDIA Jetson)
 
@@ -279,6 +279,6 @@ pipeline truly lightweight.
 ## Acknowledgements
 
 - VisDrone Dataset — AISKYEYE Lab, Tianjin University
-- Ultralytics YOLOv8
+- Ultralytics YOLOv9
 - ByteTrack: Zhang et al., ECCV 2022
 - SAHI: Akyon et al., IEEE ICIP 2022 (tile inference inspiration)

@@ -6,7 +6,7 @@ conf.read('/mnt/c/Documents and Settings/MANJU/Downloads/nayanam/nayanam/config.
 logic_id = conf.get("method", "logic")
 
 if logic_id == "Y":
-    module_name = "nayanam.tracker"
+    module_name = "nayanam.tracker_shared"
 else:
     module_name = "nayanam.segmentation"
 
